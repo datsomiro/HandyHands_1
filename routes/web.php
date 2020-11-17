@@ -48,8 +48,7 @@ Route::delete('/users/{id}', 'UserController@destroy');
 Route::post('/register', 'Auth\RegisterController@store')->middleware(['guest']);
 Route::get('/{path?}', 'IndexController@index')->name('index')
 ->where('path', '.*');
-//Route::get('/{path?}', 'IndexController@index')->name('index')
-//   ->where('path', 'users');
+
 
 
 

@@ -13,9 +13,7 @@ export default function Post() {
         <div>
             
 
-            <main>
-                <h1>Post</h1>
-            </main>
+            
 
             
         </div>

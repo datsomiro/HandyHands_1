@@ -14,7 +14,7 @@ export default function Aboutus() {
                  
     
                     <main>
-                        <h1>About us</h1>
+                        <h1>Lyyybout us</h1>
                     </main>
     
                     

@@ -18,9 +18,9 @@
 </head>
 <body>
 <div id="app">
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    {{-- <main class="d-flex align-items-center min-vh-100 py-3 py-md-0"> --}}
         @yield('content')
-    </main>
+    {{-- </main> --}}
 </div>
 </body>
 </html>

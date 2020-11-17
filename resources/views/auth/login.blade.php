@@ -48,8 +48,8 @@
                         <a href="{{route('password.request')}}" class="forgot-password-link">Forgot password?</a>
                         <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
                         <nav class="login-card-footer-nav">
-                            <a href="#!">Terms of use.</a>
-                            <a href="#!">Privacy policy</a>
+                            <a href="https://www.termsandconditionsgenerator.com/live.php?token=SigsO45gerSX3krh9I0H1mAi1GrmFy6f">Terms of use.</a>
+                          
                         </nav>
                     </div>
                 </div>

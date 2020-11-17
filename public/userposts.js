@@ -35081,7 +35081,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\web\codingbootcamp\project\HandyHands\resources\js\components\index.jsx */"./resources/js/components/index.jsx");
+module.exports = __webpack_require__(/*! C:\Users\User\web\codingbootcamp\project\HandyHands_1\resources\js\components\index.jsx */"./resources/js/components/index.jsx");
 
 
 /***/ })

@@ -16,7 +16,7 @@ export default function App() {
     const [user, setUser] = useState(null);
     const UserContext = createContext(user);
     return (
-        <UserContext.Provider value={user}>
+//       <UserContext.Provider value={user}>
             <Router>
 
                 <Header />
@@ -39,6 +39,6 @@ export default function App() {
                 <Footer />
 
             </Router>
-        </UserContext.Provider>
+ //       </UserContext.Provider>
     )
 }

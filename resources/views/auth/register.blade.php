@@ -50,10 +50,10 @@
                             </div>
                             <input name="register" id="register" class="btn btn-block login-btn mb-4" type="submit" value="Register">
                         </form>
-                        <a href="#!" class="forgot-password-link">Forgot password?</a>
+                        <a href="{{route('password.request')}}" class="forgot-password-link">Forgot password?</a>
                         <p class="login-card-footer-text">Already have an account? <a href="{{ route('login') }}" class="text-reset">Login here</a></p>
                         <nav class="login-card-footer-nav">
-                            <a href="#!">Terms of use.</a>
+                            <a href="https://www.termsandconditionsgenerator.com/live.php?token=SigsO45gerSX3krh9I0H1mAi1GrmFy6f">Terms of use.</a>
                             <a href="#!">Privacy policy</a>
                         </nav>
                     </div>
