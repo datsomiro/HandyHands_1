@@ -1,0 +1,72 @@
+.main{
+    height:120vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin:0 auto;
+
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        main{
+            position: relative;
+            z-index: 2;position: absolute;
+            text-align: center;
+            height:100%;
+            width:100%;
+        }
+        h1{
+            color:grey;
+            margin-top: 5%;
+        }
+        .text
+        {
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 5%;
+            color:black;
+            font-family: "Times New Roman", Times, serif;
+
+        }
+        
+}
+
+.aboutUs-main{
+
+    opacity:10;
+    height:100%;
+}
+.create_button{
+            height:10%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10%;
+            margin-bottom:10% ;
+
+            button{
+                    width: 40vh;
+                    height: 10vh;
+                    border-radius: 20px;
+                    color:white;
+
+                    &.create_button-help{
+                        background-color: rgba($color: #b68314, $alpha: 1.0) ;
+                    } 
+                    &.create_button-help:hover{
+                        background-color: rgba($color: #f0d292, $alpha: 1.0) ;
+                    } 
+
+                    &.create_button-helped{
+                        background-color: rgba($color: #8eeeb2, $alpha: 1.0) ;
+                    } 
+                    &.create_button-helped:hover{
+                        background-color: rgba($color: #48d67e, $alpha: 1.0) ;
+                    } 
+                
+            }
+        }

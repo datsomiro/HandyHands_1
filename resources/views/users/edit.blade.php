@@ -1,4 +1,4 @@
-<h1>Edit Profule {{ $users->name }}</h1>
+<h1>Edit Profile {{ $users->name }}</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">

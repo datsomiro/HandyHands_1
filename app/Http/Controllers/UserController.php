@@ -61,7 +61,13 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|string|min:3|max:191',
+            'firstname' => 'required|string|min:3|max:191',
+            'lastname' => 'required|string|min:3|max:191',
+            'email' => 'required|string|min:3|max:191',
+            'password'=> 'required|string|min:8|max:191',
+            'profile_photo_path'=> 'string',
+            'handy_points'=> 'integer',
+
         ]);
 
 
