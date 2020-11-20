@@ -62,7 +62,8 @@ return [
     */
 
     'home' => RouteServiceProvider::HOME,
-
+    'registered' => '/onboarding',
+    
     /*
     |--------------------------------------------------------------------------
     | Fortify Routes Middleware

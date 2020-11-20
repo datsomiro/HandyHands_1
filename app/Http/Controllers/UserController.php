@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -51,27 +52,27 @@ class UserController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $users = Users::findOrFail($id);
+        $user = Auth::user();
+        return $user;
 
-        return view('users/edit', compact('users'));
     }
 
-    public function update($id, Request $request)
+    public function update( Request $request)
     {
         $this->validate($request, [
-            'firstname' => 'required|string|min:3|max:191',
-            'lastname' => 'required|string|min:3|max:191',
-            'email' => 'required|string|min:3|max:191',
-            'password'=> 'required|string|min:8|max:191',
-            'profile_photo_path'=> 'string',
-            'handy_points'=> 'integer',
+            'firstname' => 'nullable|string|min:3|max:191',
+            'lastname' => 'nullable|string|min:3|max:191',
+            'email' => 'nullable|string|min:3|max:191',
+            'password' => 'nullable|string|min:8|max:191',
+            'profile_photo_path' => 'nullable|string',
+            
 
         ]);
 
 
-        $users = Users::findOrFail($id);
+        $users = Auth::user();
         $users->update($request->all());
 
         return redirect(action('UserController@index'));

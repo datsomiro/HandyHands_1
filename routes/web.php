@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
 //Route::get('/home', function () {
 //    dd(\Illuminate\Support\Facades\Auth::user());
 //});
@@ -25,6 +20,8 @@ Route::get('/', function () {
 
 //Route::get('/home', 'HomeController@index');
 //Route::get('/post', 'HomeController@ReactComponent')->name('single-post')->where('path','.*');
+
+
 
 Route::post('/password-reset' , 'UserController@update');
 Route::post('/password-update' , 'UserController@update');
@@ -41,14 +38,17 @@ Route::get('/users/{id}', 'UserController@show');
 
 
 Route::get('/users/{id}/edit', 'UserController@edit');
-Route::post('/users/{id}', 'UserController@update');
+Route::post('/update', 'UserController@update');
+Route::get('/user', 'UserController@edit');
+
 Route::get('/users/{id}/delete', 'UserController@delete'); // will show message "really want to delete?
 Route::delete('/users/{id}', 'UserController@destroy');
+
+Route::get('/', 'Auth\WelcomeController@index');
 
 Route::post('/register', 'Auth\RegisterController@store')->middleware(['guest']);
 Route::get('/{path?}', 'IndexController@index')->name('index')
 ->where('path', '.*');
-
 
 
 

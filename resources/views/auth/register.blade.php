@@ -54,7 +54,6 @@
                         <p class="login-card-footer-text">Already have an account? <a href="{{ route('login') }}" class="text-reset">Login here</a></p>
                         <nav class="login-card-footer-nav">
                             <a href="https://www.termsandconditionsgenerator.com/live.php?token=SigsO45gerSX3krh9I0H1mAi1GrmFy6f">Terms of use.</a>
-                            <a href="#!">Privacy policy</a>
                         </nav>
                     </div>
                 </div>

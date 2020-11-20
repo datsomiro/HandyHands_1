@@ -1,0 +1,109 @@
+
+
+.welcome{
+
+    display:flex;
+    flex-direction: row;
+    background-image:url('/img/thousands.jpg') ;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 150vh;
+    width: 130%;
+
+
+    .welcome_button{
+        display: flex;
+        flex-direction: column;
+        margin-right: 10vh;
+        padding-left: 10vh;
+
+        button {
+            width: 40vh;
+            height: 10vh;
+            border-radius: 20px;
+            color:white;
+            margin-top: 80%;
+            outline: none;
+
+            &.welcome_button-login{
+                background-color: rgba($color: gold, $alpha: 1.0) ;
+            } 
+            &.welcome_button-login:hover{
+                background-color: rgba($color: #f0d292, $alpha: 1.0) ;
+            }
+            &.welcome_button-register{
+                background-color: rgba($color: silver, $alpha: 1.0) ;
+            } 
+            &.welcome_button-register:hover{
+                background-color: rgba($color: rgb(148, 138, 138), $alpha: 1.0) ;
+            } 
+        }
+        
+    }
+
+
+        .total{
+            
+            text-align: center;
+            padding-top: 2vh;
+
+                h1 {
+                    color:red;
+                    font-size: 12vh;
+                }
+                h2 {
+                    padding-top: 5vh;
+                    color:yellow;
+                    font-size: 12vh;
+                }
+                p {
+                    padding-top: 5vh;
+                    color:rgb(38, 255, 0);
+                    font-size: 12vh;
+               }       }
+}
+@media only screen and (max-width: 800px){
+
+    .welcome{
+
+    display:flex;
+    flex-direction: row;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 10vh;
+    float: left;
+
+    .welcome_button{
+        display: flex;
+        flex-direction: column;
+        margin-right: 4vh;
+        padding-left: 4vh;
+
+        button {
+            width: 20vh;
+            height: 5vh;
+            border-radius: 20px;
+        }
+        
+    }
+
+
+        .total{
+        
+            text-align: center;
+            padding-top: 2vh;
+
+                h1 {
+                    font-size: 6vh;
+                }
+                h2 {
+                    padding-top: 5vh;
+                    font-size: 6vh;
+                }
+                p {
+                    padding-top: 2vh;
+                    font-size: 6vh;
+               }       }
+}
+}
+

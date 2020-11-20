@@ -1,0 +1,21 @@
+.update-form {
+    text-align: right;
+    padding-top:15%;
+    padding-right: 40%;
+
+    input {
+        border-radius:25px;
+    }
+
+    .profile_photo_path {
+        input {
+            height:20vh;
+            margin-bottom: 5vh;
+        }
+    }
+    button {
+        border-radius:25px;
+        background-color: grey;
+        color:wheat;
+    }
+}

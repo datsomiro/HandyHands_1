@@ -9,6 +9,8 @@ export default function Footer() {
 
             <div className="footer">               
                 <nav>
+                    <Link to="/post_helped"><button className="float">Need help</button></Link>
+                    <Link to="/post_help"><button className="float">Can help</button></Link>
                     <Link to="/"><button className="float">About us</button></Link>
                     <Link to="/post"><button className="float">Post</button></Link>
                     <Link to="/profile"><button className="float">Profile</button></Link>

@@ -6,16 +6,8 @@ import Footer from '../Footer/Footer.jsx';
 
 export default function Post() {
 
-    const [user, setUser] = useState(null);
-    const UserContext = createContext(user);
 
     return (
-        <div>
-            
-
-            <h1>hello</h1>
-
-            
-        </div>
+        <div>"hello"</div>
     )
 }

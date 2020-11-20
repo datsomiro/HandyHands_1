@@ -1,19 +1,42 @@
-<h1>User Profile </h1>
-<h2>Profile picture</h2>
-<h2>First Name: {{ $users->first_name }}</h2>
+<form action="/update" className="update-form" method="post" onSubmit={handleSubmit}>
+          
+          <div className="form-group">
+              <label htmlFor="firstname">First Name</label>
+              <input type="text" name="firstname" value={values.firstname} onChange={handleChange} />
 
-<h2>Last Name: {{ $users->last_name }}</h2>
 
-<h2>Email: {{ $users->email }}</h2>
 
-<h2>Phone number: {{ $users->phone_number }}</h2>
-<br/>
-<br/>
+          </div>
+          <div className="form-group">
+              <label htmlFor="lastname">Last Name</label>
+              <input type="text" name="lastname" value={values.lastname} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+              <label htmlFor="name">Email</label>
 
-<h2>About me: {{ $users->about }}</h2>
-<h2>What do I need help with?: {{ $users->need_help }}</h2>
-<h2>How can I help?: {{ $users->provide_help }}</h2>
+              <input type="email" name="email" value={values.email} onChange={handleChange} />
+          </div>
 
+          <div className="form-group">
+              <label htmlFor="password">Password</label>
+
+              <input type="password" name="password" value={values.password} onChange={handleChange} />
+          </div>
+
+          <div className="profile_photo_path">
+              <label htmlFor="profile_photo_path">Photo</label>
+
+              <input type="profile_photo_path" name="profile_photo_path" value={values.profile_photo_path} onChange={handleChange} />
+          </div>
+          <div className="profile_photo_path">
+              <label htmlFor="profile_photo_path">Photo</label>
+
+              <input type="profile_photo_path" name="profile_photo_path" value={values.profile_photo_path} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+              <button>Update</button>
+          </div>
+      </form>
 
 
 
@@ -26,6 +49,5 @@
     @method('DELETE')
     <input type="submit" value="Delete without asking">
 </form>
-
 <a href="{{ action('UserController@index') }}">Back to index</a>
  --}}

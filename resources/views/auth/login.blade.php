@@ -49,7 +49,6 @@
                         <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
                         <nav class="login-card-footer-nav">
                             <a href="https://www.termsandconditionsgenerator.com/live.php?token=SigsO45gerSX3krh9I0H1mAi1GrmFy6f">Terms of use.</a>
-                          <h1>hello</h1>
                         </nav>
                     </div>
                 </div>
