@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext  } from 'react';
-
+import moment from 'moment';
 
 export default function Profile(props) {
 
@@ -60,7 +60,7 @@ export default function Profile(props) {
                          data.posts.map(post => (
                             <span className="profile_span" key={post.user_id}>
                                 <div className="allPost_block">
-                                    <div className="allPost-Created_at">{post.created_at}
+                                     <div className="allPost-Created_at">{moment(post.created_at).format('MMMM Do YYYY, h:mm:ss a')}
                                     </div>
                     <div className="allPost-Service_categories">{post.service_categories}</div>
                                     <div className="allPost-Description">{post.description}</div>

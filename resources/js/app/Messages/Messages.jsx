@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import moment from 'moment';
 
 export default function Messages() {
     const [values, setValues] = useState({
@@ -67,7 +68,7 @@ export default function Messages() {
             
             <div className="allmessages">
                 <div key={values.id} className="messages">
-                    <h3>You want to contact an other user to ask details regarding his post?</h3>
+                    <h4>You want to contact an other user to ask details regarding his post?</h4>
                     <div className="message">
                         <div className="userTwo">
                             <label htmlFor="to_user_id"> write user ID here:</label>
@@ -90,7 +91,7 @@ export default function Messages() {
                         messages.map((message) => (
                             <div>
                                 <div>
-                                    {message.created_at}
+                                    {moment(message.created_at).format('MMMM Do YYYY, h:mm:ss a')}
                                 </div>
                                 <div>
                                     {message.from_users_id}
