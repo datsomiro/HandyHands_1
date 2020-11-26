@@ -20,6 +20,7 @@ export default function Header() {
                     <Link to="/allposts"><button className="float">Posts</button></Link>
                     <Link to="/profile"><button className="float">Profile</button></Link>
                     <Link to="/update"><button className="float">Update</button></Link>
+                    <Link to="/messages"><button className="float">Messages</button></Link>
                     <Logout  className="logout"/>
 
                 </nav>

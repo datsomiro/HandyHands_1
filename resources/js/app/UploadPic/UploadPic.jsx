@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ImageUploader from 'react-images-upload';
 import Axios from 'axios'; const UploadPic = props => (
-    <div className="picUploader">
+    <form className="picUploader">
         <label>
             File Upload:
+            <input id="urlInput" type="text" onChange={props.onUrlChange} value={props.url}></input>
         </label>
         <ImageUploader
             key="image-uploader"
@@ -16,11 +17,20 @@ import Axios from 'axios'; const UploadPic = props => (
             imgExtension={['.jpg', '.png', '.jpeg']}
             maxFileSize={5242880}
         />
-    </div>
+    </form>
 ); const App = () => {
     const [progress, setProgress] = useState('getUpload');
     const [url, setImageURL] = useState(undefined);
-    const [errorMessage, setErrorMessage] = useState(''); const onImage = async (failedImages, successImages) => {
+    const [errorMessage, setErrorMessage] = useState('');
+    const onUrlChange = e => {
+        setImageURL(e.target.value);
+    }; const onImage = async (failedImages, successImages) => {
+        if (!url) {
+            console.log('missing Url');
+            setErrorMessage('missing a url to upload to');
+            setProgress('uploadError');
+            return;
+        }
         setProgress('uploading');
         try {
             console.log('successImages', successImages);
@@ -28,7 +38,7 @@ import Axios from 'axios'; const UploadPic = props => (
             const mime = parts[0].split(':')[1];
             const name = parts[1].split('=')[1];
             const data = parts[2];
-            const res = await Axios.post('/image-upload', { mime, name, image: data });
+            const res = await Axios.post(url, { mime, name, image: data });
             setImageURL(res.data.imageURL);
             setProgress('uploaded');
         } catch (error) {
@@ -39,7 +49,7 @@ import Axios from 'axios'; const UploadPic = props => (
     }; const content = () => {
         switch (progress) {
             case 'getUpload':
-                return <UploadPic onImage={onImage} url={url} />;
+                return <UploadPic onUrlChange={onUrlChange} onImage={onImage} url={url} />;
             case 'uploading':
                 return <h2>Uploading....</h2>;
             case 'uploaded':
@@ -48,7 +58,7 @@ import Axios from 'axios'; const UploadPic = props => (
                 return (
                     <>
                         <div>Error message = {errorMessage}</div>
-                        <UploadPic onImage={onImage} url={url} />
+                        <UploadPic onUrlChange={onUrlChange} onImage={onImage} url={url} />
                     </>
                 );
         }

@@ -2,11 +2,11 @@
 
 header{
     width: 100%;
-    height:10vh;
+    min-height:12vh;
     
 }
 .header{
-    height:10vh;
+    height:12vh;
     text-align: left;
     width: 100%;
     background-color:#b0dddd ;
@@ -24,16 +24,16 @@ header{
     }
     nav{
         padding-top: 2vh;
-        width:80%;
+        width:100%;
         text-align: right;
         
         
         a {
-            width: 15%;
+            width: 10%;
             margin-left: 2vh;
 
             button{
-                width:12%;
+                width:10%;
                 background-color: lightblue;
                 color: grey;
                 border:none;

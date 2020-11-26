@@ -68,36 +68,28 @@ export default function Messages() {
             
             <div className="allmessages">
                 <div key={values.id} className="messages">
-                    <h4>You want to contact an other user to ask details regarding his post?</h4>
-                    <div className="message">
-                        <div className="userTwo">
-                            <label htmlFor="to_user_id"> write user ID here:</label>
-                            <input type="text" name="to_users_id" value={values.to_users_id} onChange={handleChange} />
-                        </div>
-                        <form action="/messages" className="messages_form" method="post" onSubmit={handleSubmit}>
-                        <div className="userOne">
-                            <label htmlFor="message_content">Message</label>
-                            <input type="text" name="message_content" value={values.message_content} onChange={handleChange} />
-                        </div>
-                        
-                        <div className="send">
-                            <button>Send message</button>
-                        </div>
+                    <h4>Enter in contact with another  user ?</h4>
+                    
+                        <form action="/messages" className="messages_form" method="post" onSubmit={handleSubmit}>                  
+                            <input type="text" name="to_users_id" value={values.to_users_id} onChange={handleChange} placeholder="write user ID here" />                                         
+                            <div className="textarea">
+                            <textarea name="message_content" rows="5" cols="40" value={values. message_content} onChange={handleChange} placeholder="writeyour  message here"/>
+                            </div>                                              
+                            <button>Send message</button>                       
                         </form>
-                    </div>
                 </div>
-                <div>
+                <div className="reception">
                     {
                         messages.map((message) => (
-                            <div>
-                                <div>
+                            <div className="oneMessage">
+                                <div className="created_at">
                                     {moment(message.created_at).format('MMMM Do YYYY, h:mm:ss a')}
                                 </div>
-                                <div>
+                                <div className="users_id">
                                     {message.from_users_id}
                                 </div>
 
-                                <div>
+                                <div className="message_content">
                                     {message.message_content}
                                 </div>
 
