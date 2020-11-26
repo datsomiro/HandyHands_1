@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 
 export default function AllPosts(props) {
 
@@ -55,7 +54,7 @@ export default function AllPosts(props) {
                 
                 <div className="allPost_block">
                     <div className="allPost-User_id">User ID :{post.user_id}</div>
-                    <div className="allPost-Created_at">{moment(post.created_at).format('MMMM Do YYYY, h:mm:ss a')}</div>
+                    <div className="allPost-Created_at">{post.created_at}</div>
                     <div className="allPost-Service_categories">{post.service_categories}</div>
                     <div className="allPost-Description">{post.description}</div>
                     <div className="allPost-Location">{post.location}</div>
