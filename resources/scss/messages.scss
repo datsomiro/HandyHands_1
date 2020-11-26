@@ -1,0 +1,13 @@
+.allmessages {
+    display: flex;
+    flex-direction: row;
+
+    .messages {
+        width:50%;
+
+        h4 {
+            color:grey;
+        }
+    }
+}
+

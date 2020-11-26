@@ -20,9 +20,9 @@ export default function AllPosts(props) {
                 method: 'get',
                 body: JSON.stringify(data),
                 headers: {
-                    'Accept': 'application/json', // tell Laravel (backend) what we want in response
-                    'Content-type': 'application/json', // tell backend what we are sending
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // prove to backend that this is authorized
+                    'Accept': 'application/json', 
+                    'Content-type': 'application/json', 
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                 }
             });
             const data = await response.json();

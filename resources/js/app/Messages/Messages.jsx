@@ -63,67 +63,50 @@ export default function Messages() {
     }
     return (
        
-        <section className="allmessages">
+        <section >
             
-            <div key={values.id} className="messages" style={{ width: '50%' }}>
-
-                <div className="message">
-                    <form action="/messages" className="messages_form" method="post" onSubmit={handleSubmit}>
-                    <div className="userOne">
-                        <label htmlFor="message_content">Message</label>
-                        <input type="text" name="message_content" value={values.message_content} onChange={handleChange} />
-                    </div>
-                    <div className="userTwo">
-                        <label htmlFor="to_user_id">destination user ID</label>
-                        
-                        <input type="text" name="to_users_id" value={values.to_users_id} onChange={handleChange} />
-                    </div>
-                    <div className="send">
-                        <button>Send message</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-
-
-            <div>
-                {
-                    messages.map((message) => (
-                        <div>
-                            <div>
-                                {message.message_content}
-                            </div>
-                            <div>
-                                {message.from_users_id}
-                            </div>
-                            <div>
-                                {message.created_at}
-                            </div>
+            <div className="allmessages">
+                <div key={values.id} className="messages">
+                    <h3>You want to contact an other user to ask details regarding his post?</h3>
+                    <div className="message">
+                        <div className="userTwo">
+                            <label htmlFor="to_user_id"> write user ID here:</label>
+                            <input type="text" name="to_users_id" value={values.to_users_id} onChange={handleChange} />
                         </div>
-                    ))
-                }    
-            </div> 
+                        <form action="/messages" className="messages_form" method="post" onSubmit={handleSubmit}>
+                        <div className="userOne">
+                            <label htmlFor="message_content">Message</label>
+                            <input type="text" name="message_content" value={values.message_content} onChange={handleChange} />
+                        </div>
+                        
+                        <div className="send">
+                            <button>Send message</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    {
+                        messages.map((message) => (
+                            <div>
+                                <div>
+                                    {message.created_at}
+                                </div>
+                                <div>
+                                    {message.from_users_id}
+                                </div>
+
+                                <div>
+                                    {message.message_content}
+                                </div>
+
+                            </div>
+                        ))
+                    }    
+                </div> 
+            </div>
         </section>
     );
 }
-       {/* //<div className="message">
-       //    <form action="/messages" className="messages_form" method="post" onSubmit={handleSubmit}>
-    
-       //        <div className="userOne">
-       //            <label htmlFor="userOne_firstname">{values.from_user_id}</label>
-       //            <label htmlFor="updated_at">updated at:{values.updated_at}</label>
-       //            <input type="text" name="firstname" value={values.message_content} onChange={handleChange} />
-       //        </div>
-    
-       //        <div className="userTwo">
-       //            <label htmlFor="lastname">{values.to_user_id}</label>
-       //            <label htmlFor="updated_at">updated at:{values.updated_at}</label>
-       //            <input type="text" name="firstname" value={values.message_content} onChange={handleChange} />
-       //        </div>
-       //        <div className="send">
-       //            <button>Send message</button>
-       //        </div>
-       //        
-       //    </form>
-       //</div> */}
+
     

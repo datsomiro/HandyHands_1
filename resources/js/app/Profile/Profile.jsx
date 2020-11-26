@@ -82,7 +82,7 @@ export default function Profile(props) {
     }
     return (
         <section className="AllPosts">
-            <h2>The newest posts are:</h2>
+            <h2>Your newest posts are:</h2>
             { content}
         </section>
     );

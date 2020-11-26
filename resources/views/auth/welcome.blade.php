@@ -10,7 +10,7 @@
                             background-repeat: repeat;
                             flex-direction:column">
             <h1 style="font-size:8vh; color: red;overflow-wrap: break-word">NEIGHBORHOOD</h1>
-            <a href="http://www.handyhands.test/login">
+            <a href="/login">
             <button className="welcome_button-login" style="width: 30vh;
                                                             height: 10vh;
                                                             border-radius: 20px;
@@ -24,7 +24,7 @@
             </a>
             <h2 style= "font-size:7vh; color: yellow;" >mutual support</h2>
             
-            <a href="http://www.handyhands.test/register"><button className="welcome_button-register"style="width: 30vh;
+            <a href="/register"><button className="welcome_button-register"style="width: 30vh;
                                                             height: 10vh;
                                                             border-radius: 20px;
                                                             color:white;
