@@ -30,10 +30,11 @@ class RegisterController extends RegisteredUserController
     {
         event(new Registered($user = $creator->create($request->all())));
 
-        $this->guard->login($user);        
-        
+        $this->guard->login($user);   
+                
         $response = new RegisterResponse;
-        $response->user = $user;return $response;   
+        $response->user = $user;
+        return $response;   
 
     }
 }

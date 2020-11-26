@@ -1,3 +1,5 @@
+@import 'logout.scss';
+
 header{
     width: 100%;
     height:10vh;
@@ -26,28 +28,28 @@ header{
         text-align: right;
         
         
-        a{
+        a {
             width: 15%;
-            margin-right: 2vh;
+            margin-left: 2vh;
 
             button{
                 width:12%;
                 background-color: lightblue;
                 color: grey;
                 border:none;
-                box-shadow: -2px 2px 2px 2px rgb(133, 194, 214) ;
+                box-shadow: 2px -2px 2px 2px rgb(133, 194, 214) ;
                 border-radius: 25px;
                 overflow: hidden;
                 white-space: nowrap;
                 outline: none;
+
                 &.logout {
                     background-color: orange;
                     box-shadow: -2px 2px 2px 2px rgb(238, 192, 106) ;
                     color:darkblue;
                     }
-
                 }
-            button:hover {
+                button:hover {
                     background-color: rgb(133, 194, 214);
                     box-shadow: 2px -2px 2px 2px lightblue ;
                     color:white;
@@ -55,8 +57,7 @@ header{
                     white-space: nowrap;
                     outline: none;
                 }
-            
+            }           
         }
         
     }
-}

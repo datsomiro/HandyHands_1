@@ -1,25 +1,29 @@
 import React, { useState, useEffect, createContext } from 'react';
+import UploadPic from '../UploadPic/UploadPic.jsx';
 
 export default function Post_helped() {
     const [values, setValues] = useState({
         location: '',
         user_id: '',
+        cost: '',
         description: '',
-        created_at: '',
         uploaded_photo_path: '',
         volunteer: '',
+        time:'',
 
     });
 
     const [errors, setErrors] = useState({});
 
     const handleChange = (event) => {
-        const allowed_names = ['location',
-            'user_id',
+        const allowed_names = [
+            'location',
+            'cost',
             'description',
-            'created_at',
             'uploaded_photo_path',
-            'volunteer'],
+            'volunteer',
+            'service_categories',
+            'time'],
             name = event.target.name,
             value = event.target.value
 
@@ -36,7 +40,7 @@ export default function Post_helped() {
     }
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch('/update', {
+        const response = await fetch('/api/post_helped', {
             method: 'post',
             body: JSON.stringify(values),
             headers: {
@@ -50,92 +54,57 @@ export default function Post_helped() {
         if (response_data.errors) {
             setErrors(response_data.errors);
         }
-        console.log(response_data);
-    }
-    useEffect(() => {
-        fetchUser();
-    }, [])
-    const fetchUser = async () => {
-        try {
-            const response = await fetch(
-                '/post'
-            );
-            const user = await response.json();
-            setValues({
-                location: post.location,
-                user_id: post.user_id,
-                description: post.description,
-                created_at: post.created_at,
-                uploaded_photo_path: post.uploaded_photo_path,
-                volunteer: post.volunteer,
-            })
-            console.log(u);
-        } catch (error) { }
+        
     }
 
     return (
         <div className="Post_helped-box">
 
-            <form action="/helped" className="Post_helped" method="post" onSubmit={handleSubmit}>
-
-                <div className="left">
-                    <div className="label">
-                        <label htmlFor="object"></label>
-                        <select id="object" name="object">
-                            <option value="food">Food</option>
-                            <option value="handyman">Handy Man</option>
-                            <option value="drive">A drive</option>
-                            <option value="Shopping">Shopping</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label htmlFor="when"></label>
-                        <input type="text" id="when" name="when"
-                        onChange={handleChange} placeholder="When?"/>
-        
-                        <label htmlFor="location"></label>
-                        <select id="location" name="location">
-                            <option value="">Prague1</option>
-                            <option value="">Prague2</option>
-                            <option value="">Prague3</option>
-                            <option value="">Prague4</option>
-                            <option value="">Prague5</option>
-                            <option value="">Prague6</option>
-                            <option value="">Prague7</option>
-                            <option value="">Prague8</option>
-                            <option value="">Prague9</option>
-                            <option value="">Prague10</option>
-                            <option value="">Unetice</option>
-                            <option value="">Suchdol</option>
-                            <option value="">Roztoky</option>
-                            <option value="">Troja</option>
-                            <option value="">Radotin</option>
-                            <option value="">Dolni Chriby</option>
-                        </select>
-                        
-                        <label htmlFor="gback"></label>
-                        <input type="text" id="gback" name="gback" onChange={handleChange} placeholder="What you can give back?"/>
-                    </div>
-    
+            <form action="/helped" className="Post_helped" method="post" onSubmit={handleSubmit}>                
+                        <div className="help_label">
+                            <label htmlFor="object"></label>
+                            <select id="service_categories" name="service_categories" onChange={handleChange} value={values.service_categories} >
+                                <option value="food">Food</option>
+                                <option value="handyman">Handy Man</option>
+                                <option value="drive">A drive</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label htmlFor="when"></label>
+                            <input type="text" id="time" name="time"
+                                onChange={handleChange} placeholder="When?" value={values.time} />
+                            <label htmlFor="location"></label>
+                            <select id="location" name="location" onChange={handleChange} value={values.location}>
+                                <option name="location">Prague1</option>
+                                <option name="location">Prague2</option>
+                                <option name="location">Prague3</option>
+                                <option name="location">Prague4</option>
+                                <option name="location">Prague5</option>
+                                <option name="location">Prague6</option>
+                                <option name="location">Prague7</option>
+                                <option name="location">Prague8</option>
+                                <option name="location">Prague9</option>
+                                <option name="location">Prague10</option>
+                                <option name="location">Unetice</option>
+                                <option name="location">Suchdol</option>
+                                <option name="location">Roztoky</option>
+                                <option name="location">Troja</option>
+                                <option name="location">Radotin</option>
+                                <option name="location">Dolni Chriby</option>
+                            </select>   
+                            <label htmlFor="cost"></label>
+                            <input type="text" id="cost" placeholder="what in exchange" name="cost" onChange={handleChange} value={values.cost} /><br />
+                            <input type="hidden" id="volunteer" name="volunteer" onChange={handleChange} value="0"></input>
+                        </div>              
+                        <div className="textaera">
+                            <textarea id="textarea" cols="40" rows="5" name="description" onChange={handleChange} value={values.description} >
+                            </textarea>
+                        </div>                   
+                        <UploadPic />                   
+                        <button className="submit" type="submit" value="submit" onChange={handleChange}>SUBMIT</button>
                     
-                </div>
-
-                <div className="profile_photo_path">
-                    <div className="text">
-
-                        <textarea id="textarea" name="Text1" cols="40" rows="5" name="Something to add.."  >
-                        </textarea>
-                    </div>
-                    <div className="bottom">
-                        <label htmlFor="profile_photo_path"></label>
-                        <input type="profile_photo_path" name="profile_photo_path" placeholder="Any pic" onChange={handleChange}/>
-                        <button className="submit_helped" type="submit" value="submit" onChange={handleChange}>SUBMIT</button>
-                    </div>
-                </div>
-
-            
-                
+               
             </form>
-        </div>   
+        </div>
     )
-
 }

@@ -1,11 +1,11 @@
 .main{
-    height:120vh;
+    min-height:120vh;
     text-align: center;
     position: relative;
     overflow: hidden;
     margin:0 auto;
 
-        img{
+        .background {
             position: absolute;
             left: 0;
             top: 0;
@@ -15,14 +15,16 @@
         }
         main{
             position: relative;
-            z-index: 2;position: absolute;
+            z-index: 2;
             text-align: center;
             height:100%;
             width:100%;
         }
         h1{
-            color:grey;
+            color:black;
             margin-top: 5%;
+            margin-left:30%;
+            margin-bottom:5%;
         }
         .text
         {

@@ -20,12 +20,12 @@ class UserController extends Controller
         return view('users/index', compact('users'));
     }
 
-    public function show($id)
+    public function show()
     {
-        $users = Users::findOrFail($id);
+        $user = Auth::user();
+        $user->load('posts');
 
-        return view('users/show', compact('users'));
-
+        return $user;
     }
 
     public function create()
@@ -40,21 +40,18 @@ class UserController extends Controller
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
         $user->email = $request->input('email');
-        $user->phone_number = $request->input('phone_number');
         $user->save();
 
 
         Users::create($request);
         //return view ('users.show');
         return redirect(action('UserController@show'));
-        
-
-
     }
 
     public function edit()
     {
         $user = Auth::user();
+        
         return $user;
 
     }
@@ -65,32 +62,14 @@ class UserController extends Controller
             'firstname' => 'nullable|string|min:3|max:191',
             'lastname' => 'nullable|string|min:3|max:191',
             'email' => 'nullable|string|min:3|max:191',
-            'password' => 'nullable|string|min:8|max:191',
-            'profile_photo_path' => 'nullable|string',
+            'password'=> 'nullable|string|min:8|max:191',
             
-
         ]);
 
 
         $users = Auth::user();
         $users->update($request->all());
 
-        return redirect(action('UserController@index'));
-    }
-
-    public function delete($id)
-    {
-        $users = Users::findOrFail($id);
-
-        return view('categories/delete', compact('users'));
-    }
-
-    public function destroy($id)
-    {
-        $users = Users::findOrFail($id);
-
-        $users->delete();
-
-        return redirect(action('UserController@index'));
+        return redirect(action('UserController@edit'));
     }
 }

@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import ApiClient from '../ApiClient';
-import {Redirect} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 
 
 export default function Logout() {
+    const history = useHistory();
 
     const handleSubmit = async (event) => {
 
         event.preventDefault();
         const response = await ApiClient.post('/logout');
       
-            return <Redirect to = "/" />
-        
+        //history.push('/');  
+        window.location.href = "/";
+      
 
 
     }
 
     return (
-        <a href="/" onClick={handleSubmit}>Logout</a>
+        <a className="logout" href="/" onClick={handleSubmit}><button className="float">logout</button></a>
     )
 
 }

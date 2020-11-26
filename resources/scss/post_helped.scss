@@ -1,78 +1,45 @@
-.Post_helped-box {
-    height: 100%;
-    background-color: rgba($color: #f1deb3, $alpha: 1.0) ;
-    opacity: 0.8;
-    
-    .Post_helped{
-        display: flex;
-        flex-wrap: row;
-        width: 100%;
-        height: 100%;
+ .Post_helped-box {
+     height: 100%;
+     text-align: center;
+     background-color: rgb(91, 211, 155);
+     opacity:0.6;
 
-        form {
-            height:100%;
-        }
-    }
-}   
+     form {
+         min-height:120vh;
+     }
 
-.left {
-
-    width:50%;
-    height: 100%;
-    
-    .label{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+     .help_label{
+         display: flex;
+         flex-direction: row;
+         text-align: center;
+         justify-content: space-between;
 
         input, select {
-            width:50%;
+            width:15%;
             border-radius: 25px;
             outline: none;
-            margin-top:18%;
-            margin-left:25%;
-            height: 6%;
-        }
-    }
-}
-
-.profile_photo_path {
-
-    width: 50%;
-
-    .text {
-        margin-top: 30%;
-            #textaera {
-            margin-top: 25%;
+            margin-top:5%;          
+            height: 6%;       
             }
         }
-    .bottom{
-        display: flex;
-        flex-direction: column;
-        margin-top: 5%;
-        height:50%;
-
-        input{
-            margin-left:22%;
-            height: 20%;
-            width:25%;
+        .textaera {
+            width: 40%;
+            margin-top: 5%;
+            margin-left:30%;
+            margin-right:30%;
+        }
+        .picUploader{
+            width:20%;
+            margin-left:40%;
+        }
+        .submit {
+            width:15%;
+            border-radius: 25px;
+            outline: none;
+            margin-top:5%;          
+            height: 6%;
+            overflow:hidden;
+            text-overflow:ellipsis;
         }
 
-        .submit_helped {
-               background-color: rgb(182, 120, 6) ;
-               border-radius: 25px;
-               margin-top:5vh;
-               width:30vh;
-               height:8vh;
-               outline: none;   
-               margin-left:25%;
-               margin-top:15%;          
-               box-shadow: 3px 3px ;              
-           }
-           .submit_helped:hover{
-               background-color: rgb(100, 67, 5) ;
-               color:white;
-           }
     }
-}
-

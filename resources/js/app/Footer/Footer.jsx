@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Logout from '../Logout/Logout.jsx';
 
 export default function Footer() {
 
@@ -15,7 +16,7 @@ export default function Footer() {
                     <Link to="/post"><button className="float">Post</button></Link>
                     <Link to="/profile"><button className="float">Profile</button></Link>
                     <Link to="/update"><button className="float">update</button></Link>
-                    <Link to="/"><button className="logout">Logout</button></Link>
+                    <Logout className="logout" />
                 </nav>
                 <img src="/img/logo.png" alt="logo" className="logo" />
             </div>

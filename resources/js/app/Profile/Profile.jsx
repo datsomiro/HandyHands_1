@@ -1,107 +1,89 @@
 import React, { useState, useEffect, createContext  } from 'react';
 
 
-export default function Profile() {
+export default function Profile(props) {
 
-    const [values, setValues] = useState({
-        firstname: '',
-        laststname: '',
-        email: '',
-        profile_photo_path: '',
-        handy_points: '',
-        });
+    const [{ loading, loaded, data }, setDataState] = useState({
+        loading: false,
+        loaded: false,
+        data: null
+    })
 
-    const [errors, setErrors] = useState({});
+    const loadData = async () => {
+        {
+            setDataState({
+                loading: true,
+                loaded: false,
+                data: null
+            });
 
-    const handleChange = (event) => {
-    const allowed_names = ['firstname', 'laststname', 'email', 'profile_photo_path', 'handy_points'],
-       name = event.target.name,
-       value = event.target.value
-
-        if (-1 !== allowed_names.indexOf(name)) {
-            setValues(prev_values => {
-                return (
-                    {
-                        ...prev_values,
-                        [name]: value
-                    }
-                );
-        });
-
-    const handleSubmit = async (event) => {
-            event.preventDefault();
-            const response = await fetch('/update', {
+            const response = await fetch('/api/profile', {
                 method: 'post',
-                body: JSON.stringify(values),
+                body: JSON.stringify(data),
                 headers: {
                     'Accept': 'application/json', 
-                    'Content-type': 'application/json', 
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
+                    'Content-type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // prove to backend that this is authorized
                 }
-            })
-            const response_data = await response.json();
+            });
+            const data = await response.json();
 
-            if (response_data.errors) {
-                setErrors(response_data.errors);
-            }
-            console.log(response_data);
+            setDataState({
+                loading: false,
+                loaded: true,
+                data: data
+            });
         }
+    }
 
-    return (
-    
-                <form action="/update" className="update-form" method="post" onSubmit=      {handleSubmit}>
+    useEffect(() => {
+        loadData();
+    }, [])
 
-                    <div className="form-group">
-                        <label htmlFor="firstname">First Name</label>
-                        <input type="text" name="firtsname" value={values.firstname} onChange=      {handleChange} />
+    console.log(data);
 
-                        {
-                            errors.firstname !== undefined ? (
-                                <div className="field-errors">
-                                    {
-                                        errors.name.map(error => (
-                                            <div className="field-errors__error">{error}</div>
-                                        ))
-                                    }
+
+    let content = '';
+
+    if (loading) {
+        content = (
+            <h1>Hello  Can you wait while Loading</h1>
+        )
+    } else if (loaded) {
+        content = (
+            <div key={data.id} className="Profile" style={{ width: '70%' }}>
+
+                <img>{data.profile_photo_path}</img>
+                <h1>Hi {data.firstname} {data.lastname}!</h1>
+                <div className="post_description">
+                    {
+                         data.posts.map(post => (
+                            <span className="profile_span" key={post.user_id}>
+                                <div className="allPost_block">
+                                    <div className="allPost-Created_at">{post.created_at}
+                                    </div>
+                    <div className="allPost-Service_categories">{post.service_categories}</div>
+                                    <div className="allPost-Description">{post.description}</div>
+                                    <div className="allPost-Location">{post.location}</div>
+                                    <div className="allPost-Cost">{post.cost}</div>
+                                    <div className="allPost-time">{post.time}</div>
                                 </div>
-                            ) : ''
-                        }
-
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="lastname">Last Name</label>
-                        <input type="text" name="lastname" value={values.lastname} onChange=        {handleChange} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="name">Email</label>
-                    
-                        <input type="email" name="email" value={values.email} onChange=     {handleChange} />
-                    </div>
-                    
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                    
-                        <input type="password" name="password" value={values.password} onChange=        {handleChange} />
-                    </div>
-                    
-                    <div className="profile_photo_path">
-                        <label htmlFor="profile_photo_path">Photo</label>
-                    
-                        <input type="profile_photo_path" name="profile_photo_path" value={values.       profile_photo_path} onChange={handleChange} />
-                    </div>
-                    
-                    <div className="profile_photo_path">
-                        <label htmlFor="profile_photo_path">Photo</label>
-                    
-                        <input type="profile_photo_path" name="profile_photo_path" value={values.       profile_photo_path} onChange={handleChange} />
-                    </div>
-                    
-                    <div className="form-group">
-                        <button>Update</button>
-                    </div>
-                    
-                    
-                </form>
-          
-
-        )}}}
+                                <div className="allPostPic">
+                                    <img className="allPostPic_img" src={post.uploaded_photo_path} />
+                                </div>                                    
+                            </span>
+                             
+                         )
+                         )
+                    }
+                </div>
+            </div>
+        )        
+    }
+    return (
+        <section className="AllPosts">
+            <h2>The newest posts are:</h2>
+            { content}
+        </section>
+    );
+}

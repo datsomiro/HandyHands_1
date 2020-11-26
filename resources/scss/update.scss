@@ -1,16 +1,32 @@
 .update-form {
     text-align: right;
-    padding-top:15%;
-    padding-right: 40%;
+    margin-left:45%;
+    margin-right:40%;
+    margin-top:5%;
+    
 
     input {
         border-radius:25px;
     }
 
     .profile_photo_path {
-        input {
-            height:20vh;
+        width: 100%;
+
+        .upload {
+            
+            height:15vh;
             margin-bottom: 5vh;
+            width:50%;
+
+            .picUploader{
+                margin-left:40%;
+                width:20%;
+
+                .fileContainer{
+
+                    margin-left:40%;
+                }
+            }
         }
     }
     button {
@@ -18,4 +34,9 @@
         background-color: grey;
         color:wheat;
     }
+}
+@media only screen and (max-width: 600px) {
+  .update-form {
+    text-align: center;
+  }
 }

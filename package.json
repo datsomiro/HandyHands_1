@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.12.5",
-        "axios": "^0.19",
+        "axios": "^0.19.2",
         "bootstrap": "^4.5.3",
         "browser-sync": "^2.26.13",
         "browser-sync-webpack-plugin": "^2.0.1",
@@ -30,7 +30,10 @@
         "@fortawesome/free-brands-svg-icons": "^5.15.1",
         "@fortawesome/free-solid-svg-icons": "^5.15.1",
         "react": "^17.0.1",
+        "react-confirm-alert": "^2.6.2",
         "react-dom": "^17.0.1",
+        "react-images-upload": "^1.2.8",
+        "react-loading": "^2.0.3",
         "react-router-dom": "^5.2.0"
     }
 }

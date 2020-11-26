@@ -1,0 +1,21 @@
+button.logout {
+    width:12%;
+    background-color: orange;
+    box-shadow: -2px 2px 2px 2px rgb(238, 192, 106) ;
+    color:darkblue;   
+    border:none;
+    border-radius: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+    }
+
+                
+button.logout:hover {
+    background-color: rgb(133, 194, 214);
+    box-shadow: 2px -2px 2px 2px lightblue ;
+    color:white;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+ }

@@ -12,6 +12,6 @@ use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;class
      */
     public function toResponse($request)
     {
-        return redirect()->action('UserController@show', $this->user->id);
+        return redirect('/update');
     }
 }

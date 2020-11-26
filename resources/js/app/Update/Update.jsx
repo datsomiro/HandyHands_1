@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import UploadPic from '../UploadPic/UploadPic.jsx';
 
 export default function Update() {
     const [values, setValues] = useState({
@@ -29,7 +30,7 @@ export default function Update() {
     }
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch('/update', {
+        const response = await fetch('/api/update', {
             method: 'post',
             body: JSON.stringify(values),
             headers: {
@@ -69,29 +70,22 @@ export default function Update() {
  
       <form action="/update" className="update-form" method="post" onSubmit={handleSubmit}>
           
-          <div className="form-group">
+          <div className="updateName">
               <label htmlFor="firstname">First Name</label>
               <input type="text" name="firstname" value={values.firstname} onChange={handleChange} />
-          </div>
-
-          <div className="form-group">
               <label htmlFor="lastname">Last Name</label>
               <input type="text" name="lastname" value={values.lastname} onChange={handleChange} />
           </div>
 
-          <div className="form-group">
+          <div className="updateDetails">
               <label htmlFor="email">Email</label>
               <input type="email" name="email" value={values.email} onChange={handleChange} />
-          </div>
-
-          <div className="form-group">
               <label htmlFor="password">Password</label>
               <input type="password" name="password" value={values.password} onChange={handleChange} />
-          </div> 
+          </div > 
 
           <div className="profile_photo_path">
-              <label htmlFor="profile_photo_path">Photo</label>
-              <input type="profile_photo_path" name="profile_photo_path" value={values.profile_photo_path} onChange={handleChange} />
+          <UploadPic />
           </div>
 
           <div className="form-group">
