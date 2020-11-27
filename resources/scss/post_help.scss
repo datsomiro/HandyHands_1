@@ -5,7 +5,7 @@
      opacity:0.6;
 
      form {
-         min-height:70vh;
+         min-height:70%;
      }
 
         .help_label{
@@ -32,15 +32,21 @@
             width:20%;
             margin-left:40%;
         }
-        .submit {
+        .bottom {
+            min-height:50vh;
+
+            .submit {
             width:15%;
             border-radius: 25px;
             outline: none;
             margin-top:5%; 
-            padding-bottom:30%;         
+            margin-bottom:10%;         
             height: 6%;
             overflow:hidden;
             text-overflow:ellipsis;
         }
+
+        }
+        
 
     }
