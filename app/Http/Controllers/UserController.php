@@ -22,8 +22,11 @@ class UserController extends Controller
 
     public function show()
     {
-        $user = Auth::user();
-        $user->load('posts');
+        $user = Auth::user();       
+        $user->load(['posts' => function ($query) {
+        $query->orderBy('created_at', 'desc');
+    }]);
+
 
         return $user;
     }

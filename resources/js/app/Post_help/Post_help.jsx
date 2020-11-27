@@ -101,8 +101,10 @@ export default function Post_help() {
                     <textarea id="textarea" cols="40" rows="5" name="description" onChange={handleChange} value={values.description} >
                     </textarea>
                 </div>
-                <UploadPic />
-                <button className="submit" type="submit" value="submit" onChange={handleChange}>SUBMIT</button>
+                <div className="bottom">
+                    <UploadPic />
+                    <button className="submit" type="submit" value="submit" onChange={handleChange}>SUBMIT</button>
+                </div>
 
 
             </form>
