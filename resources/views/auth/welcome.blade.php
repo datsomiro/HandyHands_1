@@ -2,7 +2,8 @@
 
 
 
-<div class="tout" style= "  width:100% ;height:100% ;
+<div class="tout" style= "  width:100% ;
+                            height:100% ;
                             text-align:center;
                             background-image:url('img/thousands.jpg'); 
                             background-size: auto;
@@ -38,7 +39,7 @@
                    
             
             
-            <p style= "font-size:8vh;font-style:bold; color: rgb(159, 239, 245);font-family: 'Nerko One', cursive">That means for you?<br/>
+            <p style= "font-size:10vh;font-style:bold; color: rgb(95, 255, 2);font-family: 'Nerko One', cursive">That means for you?<br/>
             Come and join us</p>
         </div>
     
