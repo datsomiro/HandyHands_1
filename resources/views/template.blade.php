@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('Handyhands') }}</title>
+    <title>Handyhands</title>
 
     <!-- Scripts -->
     
