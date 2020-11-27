@@ -14,6 +14,7 @@
     @yield('headScript')
 
     <!-- Styles -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/logo.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
